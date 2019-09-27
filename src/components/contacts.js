@@ -23,13 +23,14 @@ class Contacts extends Component {
    for(var i=0; i< headers.length; i++){
      colHeaders.push(<div className="div-table-head" key={i}>{headers[i]}</div>);
    }
-   for(var j=0; j< contacts.length; j++){
-     var row = <div className="div-table-row" key={j*103}>
-                  {this.returnRows(j, contacts[j].contacts)}
-                </div>
-    rows.push(row);
-     }
-     if(contacts.length == 0){
+   if(contacts && contacts.length > 0){
+     for(var j=0; j< contacts.length; j++){
+       var row = <div className="div-table-row" key={j*103}>
+                    {this.returnRows(j, contacts[j].contacts)}
+                  </div>
+      rows.push(row);
+       }
+   }else{
        var row = <div className="no-data" key={1023}> No Data to display</div>
        nodata.push(row);
      }
