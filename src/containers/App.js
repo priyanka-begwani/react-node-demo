@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://127.0.0.1:3001/contacts")
+    fetch("https://react-proxy.herokuapp.com/contacts")
       .then(res => res.json())
       .then(
         (result) => {
@@ -21,6 +21,7 @@ class App extends React.Component {
             isLoaded: true,
             contacts: result && result.contacts
           });
+
         },
         (error) => {
           this.setState({
